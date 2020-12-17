@@ -2,12 +2,12 @@
     background-color: #1c2237;
 }
 
-.signin-row{
+.signup-row{
     height: 85.8vh;
     position: relative;
 }
 
-.signin img{
+.signup img{
     margin: 0;
     position: absolute;
     top: 50%;
@@ -15,14 +15,16 @@
     width: 100%;
 }
 
-.signin{
+.signup{
     padding:0 20px ;
 }
 .form-fields{
     padding: 0 !important;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
-.signin-form-section{
+.signup-form-section{
     margin: 0;
     position: absolute;
     top: 50%;
@@ -30,6 +32,7 @@
 }
 .text-light{
     color: white;
+    
 }
 
 .section-divider{
@@ -40,8 +43,11 @@
     float: right;
 }
 
-.form-label{
-    padding-right:10px;
+.signup-form-section{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .text-center{
@@ -52,14 +58,6 @@
 .form-check-input{
     float: right;
 }
-.remember-me{
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-/* .remember-me input{
-    float: right;
-} */
 
 .login-btn button{
     margin: 0 auto;
@@ -74,39 +72,51 @@
     transition: 0.4s ease;
 }
 
-.remember-me a{
-    text-decoration: none;
-    color: white;
+/* .form-controller{
+    margin-bottom: 20px;
+} */
+
+.dob{
+    padding-left: 10px;
+}
+.dob input{
+    width: 115%;
 }
 
-@media only screen and (max-width : 768px){
-    .signup img{
-        width: 100%;
-        padding-right: 30px;
-    }
-    .form-fields label {
-        float:left;
-    }
-    .login-btn button{
-        margin: 10px 0;
-    }
-    .remember-me{
-        margin: 0;
-        padding-left: 0;
-    }
-    #root > div > div.signup-container.container > div > div:nth-child(1) > div > form > div:nth-child(4) > div:nth-child(1) > div > div{
-        padding-top: 10px;
-    }
+
+input{
+    border-radius: 4px;
+    font-size: 14px;
+    height: 3vh;
+    border: none;
+    width: 80%;
 }
 
-@media only screen and (max-width : 575px){
-    .signin img{
-        width: 70%;
-        top: 0;
-        transform: translateY(0%);
+input:focus{
+    outline: none;
+    border-bottom: 3px solid crimson;
+}
+
+.dob{
+    padding-left: 20px !important;
+}
+
+.error p{
+    color:crimson !important;
+}
+
+@media only screen and (max-width: 992px){
+    .dob{
+        padding-left: 10px !important;
     }
-    .form-fields label {
-        float:left;
+    .text-light{
+        padding-left:0 !important;
     }
-    
+    .dob-label{
+        padding-left: 5px !important;
+    }
+}
+.login-btn{
+    text-align: center;
+    margin-top: 20px;
 }

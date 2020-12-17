@@ -29,7 +29,7 @@ h1, p {
 }
 
 .description-section p{
-    color: white;
+    color: white !important;
 }
 
 .startButton a{

@@ -39,3 +39,7 @@ a.navbar-signup:hover{
     color: #1c2237 !important; 
     transition: 0.3s ease;
 }
+
+.footer-section p {
+    color: black;
+}

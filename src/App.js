@@ -3,7 +3,8 @@ import HomePage from './pages/homepage'
 import {Route, Switch} from 'react-router-dom'
 import SignIn from './components/sign-in/signin'
 import SignUp from './components/sign-up/signup';
-import UserProfile from './pages/userProfile';
+import UserProfile from './pages/UserProfile';
+import UserHomePage from './pages/UserHomePage';
 
 
 function App() {
@@ -13,9 +14,13 @@ function App() {
       <Route exact path = "/sign-in" component = {SignIn}/>
       <Route exact path = "/sign-up" component = {SignUp}/>
       <Route exact path = "/profile" component = {UserProfile}/>
-
+      <Route exact path = "/Home" component = {UserHomePage}/>
     </Switch>
   );
 }
 
 export default App;
+
+
+
+

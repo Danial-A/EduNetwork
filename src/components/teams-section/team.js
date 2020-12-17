@@ -18,7 +18,7 @@ function TeamSection() {
                     </div>
                     <Card.Body>
                     <Card.Title>Danial Ahmad</Card.Title>
-                    <Card.Text className = "card-text">
+                    <Card.Text className = "card-information">
                         <pre>Full Stack Developer</pre>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, aliquam?</p>
                     </Card.Text>

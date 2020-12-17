@@ -3,19 +3,6 @@
     padding: 100px 20px;
 }
 
-/* #root > div > div.team-container.container-fluid > div > div.ml-auto.col-md-6 > div > div > p{
-    color: black;
-}
-
-#root > div > div.team-container.container-fluid > div > div.ml-auto.col-md-6 > div{
-    border:none;
-}
-#root > div > div.team-container.container-fluid > div > div.ml-auto.col-md-6 > div > div{
-    border: 1px solid grey;
-    margin-top: 10px;
-    border-radius: 20px;
-} */
-
 .card-main{
     border: none;
     text-align: center;
@@ -39,8 +26,8 @@
 }
 
 
-.card-text pre, p{
-    color:black;
+.card-information pre, p{
+    color:black !important;
 }
 .text-center{
     display: flex !important;
