@@ -20,7 +20,7 @@ function UserProfile() {
     useEffect(()=>{
         const fetchPosts = async ()=>{
             setLoading(true);
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+            const response = await axios.get('http://localhost:5000/posts');
             setPosts(response.data);
             setLoading(false)
         }

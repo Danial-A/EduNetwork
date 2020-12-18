@@ -58,7 +58,9 @@
 .form-check-input{
     float: right;
 }
-
+.user-info-row{
+    padding-top: 10px;
+}
 .login-btn button{
     margin: 0 auto;
     background-color: crimson;
@@ -84,7 +86,7 @@
 }
 
 
-input{
+.form-fields input{
     border-radius: 4px;
     font-size: 14px;
     height: 3vh;

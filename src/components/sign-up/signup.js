@@ -6,7 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './signup.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-function SignUp() {
+import axios from 'axios'
+
+
+
+function SignUp(props) {
+
+
 
     const initialValues = {
         firstname: '',
@@ -17,8 +23,14 @@ function SignUp() {
         confirmpassword: '',
         dob:''
     }
-    const onSubmit = values=>{
-        console.log(values)
+    const onSubmit =( values, onSubmitProps)=>{
+ 
+        axios.post('http://localhost:5000/users/sign-up',values)
+        .then((res)=>{console.log(res.data)})
+        .catch(err =>{ console.log('Error: '+err)});
+
+        onSubmitProps.resetForm()
+        
     }
 
     const validationSchema = Yup.object({
@@ -27,8 +39,11 @@ function SignUp() {
         emailid: Yup.string().email('Enter a valid email address..').required('This field is required..'),
         username: Yup.string().required('This field is required..'),
         password: Yup.string().required('This field is required..'),
-        confirmpassword: Yup.string().required('This field is required..'),
-        dob: Yup.string().required('This field is required..')
+        dob: Yup.string().required('This field is required..'),
+        confirmpassword: Yup.string().required('This field is required..').when("password", {
+            is:val => (val && val.length > 0 ? true : false),
+            then : Yup.string().oneOf([Yup.ref("password")], "Value must match the entered password..")
+        })
     })
     const formik = useFormik({
         initialValues,
@@ -36,7 +51,8 @@ function SignUp() {
         validationSchema
 
     })
-    return (
+
+     return (
         <div className = "main-body">
             <NavigationBar/>
                 <div className="container signin-container">

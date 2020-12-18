@@ -31,15 +31,13 @@ function SignIn() {
                                 </Col>
                             </Row>
                           <Row>
-                            <Col md = {6} className = "remember-me">
-
-                                <Form.Group controlId="formBasicCheckbox" >
-                                    <Form.Check type="checkbox"  label="Remember Me."  className = "text-light"/>
-                                </Form.Group>
-                     
+                            <Col md = {6} >
+                            <Form.Group controlId="formBasicCheckbox" >
+                                <Form.Check type="checkbox"  label="Remember Me."  className = "text-light"/>
+                            </Form.Group>
                             </Col>
-                            <Col md= {6} className ="remember-me">
-                                <a href="#">Forgot Password?</a>
+                            <Col md= {6}>
+                                <a href style = {{color:'white'}}>Forgot Password?</a>
                         
                             </Col>
                 

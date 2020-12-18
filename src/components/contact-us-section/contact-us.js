@@ -9,7 +9,7 @@ function ContactUs() {
             <Row>
             <Col lg ={4} className ="contact-desctiption">
             <h1>Contact Us</h1>
-            <p>Contact us in order to get in touch with us to know the latest happenings over at EduNetwork!</p>
+            <p style = {{color:'white !important'}}>Contact us in order to get in touch with us to know the latest happenings over at EduNetwork!</p>
             </Col>
             <Col lg= {8}>
             <Form>

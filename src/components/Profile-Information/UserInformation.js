@@ -15,7 +15,7 @@ function UserInformation() {
                     <li><FontAwesomeIcon icon = {faUsers} className = "icon"/>Username:<pre> Daniyal123</pre></li>
                     <li><FontAwesomeIcon icon = {faEnvelope} className = "icon"/>Email ID:<pre> dani123.da1@gmail.com</pre></li>
                     <li><FontAwesomeIcon icon = {faCalendar} className = "icon"/>DOB:<pre> 23-08-1997</pre></li>
-                    <li><FontAwesomeIcon icon = {faCalendar} className = "icon"/>Nationality:<pre> Pakistani</pre></li>
+                    <li><FontAwesomeIcon icon = {faFlag} className = "icon"/>Nationality:<pre> Pakistani</pre></li>
                    
                 </ul>
             </div>

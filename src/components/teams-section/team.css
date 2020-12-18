@@ -26,8 +26,8 @@
 }
 
 
-.card-information pre, p{
-    color:black !important;
+.card-text pre, p{
+    color:black;
 }
 .text-center{
     display: flex !important;
