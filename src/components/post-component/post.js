@@ -1,10 +1,10 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
-import { faThumbsUp, faComment, faShare, faSave,faFlag } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faComment, faShare, faSave } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
-
+import moment from 'moment'
 function Post({posts, loading}) {
 
     if(loading){
@@ -21,7 +21,7 @@ function Post({posts, loading}) {
                            <span className = "user-heading">User:</span> Danial Ahmad
                         </div>
                         <div className="col-md-6">
-                            <pre>created on: {post.createdAt.toString().slice(0,10)}</pre>
+                            <pre>Created: {moment(post.createdAt).fromNow()}</pre>
                         </div>
                       </div>
                       <div className="row">

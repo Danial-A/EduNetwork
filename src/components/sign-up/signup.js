@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './signup.css'
+import {useHistory} from 'react-router-dom'
 import NavigationBar from '../../components/navigation-bar/navbar'
 import Footer from '../../components/footer-section/footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,9 +11,10 @@ import axios from 'axios'
 
 
 
+
 function SignUp(props) {
 
-
+    const [redirect, setRedirect] = useState(false)
 
     const initialValues = {
         firstname: '',
@@ -24,13 +26,20 @@ function SignUp(props) {
         dob:''
     }
     const onSubmit =( values, onSubmitProps)=>{
- 
+        setRedirect(true);
         axios.post('http://localhost:5000/users/sign-up',values)
         .then((res)=>{console.log(res.data)})
         .catch(err =>{ console.log('Error: '+err)});
 
         onSubmitProps.resetForm()
         
+    }
+    let history = useHistory();
+    function redirectUser(){
+        if(redirect){
+            
+            history.push('/sign-in');
+        }
     }
 
     const validationSchema = Yup.object({
@@ -49,7 +58,6 @@ function SignUp(props) {
         initialValues,
         onSubmit,
         validationSchema
-
     })
 
      return (
@@ -153,7 +161,7 @@ function SignUp(props) {
                                     </div>
                                 </div>
                                 <div className="login-btn">
-                                        <button type = "submit" className = "btn btn-danger">Submit</button>
+                                        <button type = "submit" className = "btn btn-danger" onClick = {redirectUser()}>Submit</button>
                                     </div>
                                 </form>
                             </div>
