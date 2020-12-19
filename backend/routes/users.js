@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let User = require('../models/user.models');
+const User = require('../models/user.models');
 const bcrypt = require('bcryptjs')
 const {signAccessToken} = require('../helpers/jwtHelper')
 
@@ -31,17 +31,18 @@ router.route('/sign-up').post(async(req,res) => {
    res.send({accessToken})
 });
 
-router.route('/sign-in', (req,res,next)=>{
-    try{
-        const user = User.findOne({username })
-        if(!user){
-            console.log("No user in the database");
-        }
-
-    }catch(error){
-        next(error)
-    }
-})
-
+router.route('/sign-in').post(async(req,res)=>{
+    const username = req.body.username
+    const password = req.body.password
+    User.findOne({username, password}, (err,user)=>{
+       if(err){
+           console.log(err)
+       }
+       if(!user){
+           return res.send('User name or password incorrect')
+       }
+       return res.status(200).send("User Signed In")
+   })
+});
 module.exports = router;
 

@@ -98,3 +98,23 @@
     text-align: center;
     margin-top: 30px;
 }
+
+.post-btn-btn{
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-shadow: none;
+    padding: 5px;
+}
+.post-btn{
+    text-align: center;
+}
+
+
+.post-btn-btn:hover{
+    color: crimson;
+    background-color: white;
+    font-weight: bold;
+    transition: 0.4s ease;
+}

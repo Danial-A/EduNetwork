@@ -5,7 +5,7 @@ const { route } = require('./users');
 router.route('/').get((req,res)=>{
     Post.find()
     .then(posts => res.json(posts))
-    .catch(err => res.status(400).json('Erro: '+err));
+    .catch(err => res.status(400).json('Error: '+err));
 });
 
     router.route('/add').post((req,res)=>{

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import NavigationBar from '../components/navigation-bar/navbar'
+import NavigationBar from '../components/navigation-bar/userNavbar'
 import './UserProfile.css'
 import {Container, Row, Col} from 'react-bootstrap'
 import Footer from '../components/footer-section/footer'

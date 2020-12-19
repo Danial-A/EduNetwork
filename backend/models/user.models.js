@@ -47,20 +47,26 @@ const userSchema = new Schema({
 });
 
 
-userSchema.pre('save', async function (next){
+// userSchema.pre('save', async function (next){
+//     try{
+//         const salt = await bcrypt.genSalt(10)
+//         const hashedPassword = await bcrypt.hash(this.password, salt)
+//         this.password = hashedPassword;
+//         this.confirmpassword = hashedPassword;
+//         console.log(this.password)
+//         next();
+//     }catch(error){
+//         next(error)
+//     }
+// })
+
+userSchema.methods.validPassword =async function(password){
     try{
-        const salt = await bcrypt.genSalt(10)
-        const hashedPassword = await bcrypt.hash(this.password, salt)
-        this.password = hashedPassword;
-        this.confirmpassword = hashedPassword;
-        console.log(this.password)
-        next();
+        return await bcrypt.compare(password, this.password)
     }catch(error){
-        next(error)
+        throw error
     }
-})
-
-
+}
 
 const User = mongoose.model('User', userSchema);
 

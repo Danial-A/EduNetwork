@@ -18,6 +18,9 @@ function ProfileInformation() {
                     <li><Link><FontAwesomeIcon icon = {faUsers} className = "icon"/>Groups</Link></li>
                     <li><Link><FontAwesomeIcon icon = {faTasks} className = "icon"/>Contributions</Link></li>
                 </ul>
+                <div className="post-btn">
+                    <button className = "post-btn-btn">Add New Post</button>
+                </div>
             </div>
         </div>
     )

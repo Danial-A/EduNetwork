@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import './signin.css'
 import NavigationBar from '../../components/navigation-bar/navbar'
 import Footer from '../../components/footer-section/footer'
@@ -6,19 +7,37 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Col, Row, Form, Button} from 'react-bootstrap'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import axios from 'axios'
 
 function SignIn() {
 
+    const [redirect,setRedirect] = useState(false)
     const initialValues = {
         username : '',
-        password: '',
-        toggle: false
+        password: ''
     }
 
-  const onSubmit = (values)=>{
-      console.log(values)
+    const history = useHistory();
+    function redirectUser(){
+        if(redirect){
+            history.push('/home')
+        }
+    }
+
+  const onSubmit = (values, onSubmitProps)=>{
+    axios.post('http://localhost:5000/users/sign-in', values)
+    .then(res =>{
+        window.alert(res.data)
+        setRedirect(true)
+        console.log(res)
+    })
+    .catch(err => window.alert(err.data))
+    onSubmitProps.resetForm()
   }
+
+
+
   const validationSchema =Yup.object({
     password: Yup.string().required('This field is required..'),
     username: Yup.string().required('This field is required..')
@@ -81,7 +100,7 @@ function SignIn() {
                 
                           </Row>
                           <Row className = "login-btn">
-                            <Button variant = "primary" type = "submit">Log In</Button>
+                            <Button variant = "primary" type = "submit" onClick = {redirectUser()}>Log In</Button>
                           </Row>
                         </Form>
                     </div>
