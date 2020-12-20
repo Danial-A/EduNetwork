@@ -8,15 +8,14 @@ router.route('/').get((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err));
 });
 
-    router.route('/add').post((req,res)=>{
-        const postTitle = req.body.postTitle;
-        const postDescription = req.body.postDescription;
-        const date = Date.parse(req.body.date);
+router.route('/add').post((req,res)=>{
+    console.log(req.body)
+    const postTitle = req.body.postTitle;
+    const postDescription = req.body.postDescription;
 
-        const newPost = new Post({
+    const newPost = new Post({
             postTitle,
-            postDescription,
-            date
+            postDescription
         });
         newPost.save()
         .then(()=> res.json('Post Added!'))
@@ -40,8 +39,6 @@ router.route('/').get((req,res)=>{
         .then(post=>{
             post.postTitle = req.body.postTitle;
             post.postDescription = req.body.postDescription;
-            post.date = Date.parse(req.body.date);
-
             post.save()
             .then(()=> res.json('Post Updated'))
             .catch((err)=> res.status(400).json('Error: '+err))

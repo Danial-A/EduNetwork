@@ -12,10 +12,7 @@
     text-align: center;
     color: crimson;
 }
-.user-information-section{
-    position: sticky;
-    top:10vh;
-}
+
 .edit-btn{
     text-align: center;
 }

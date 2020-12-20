@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Col, Row, Form, Button} from 'react-bootstrap'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function SignIn() {

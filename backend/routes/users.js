@@ -5,7 +5,6 @@ const {signAccessToken} = require('../helpers/jwtHelper')
 
 
 router.route('/sign-up').post(async(req,res) => {
-    console.log(req)
    const firstname = req.body.firstname;
    const lastname = req.body.lastname;
    const emailid = req.body.emailid;
@@ -21,7 +20,6 @@ router.route('/sign-up').post(async(req,res) => {
        password,
        confirmpassword,
        dob
-    
    }); 
    newUser.save()
    .then(()=> res.json('User Added to database!'))

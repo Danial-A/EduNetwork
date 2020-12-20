@@ -67,7 +67,7 @@ function SignUp(props) {
                     <div className="row signin-row">
                         <div className="col-sm-8" style = {{padding: '0'}}>
                             <div className="signup-form-section signup">
-                                <form onSubmit  = {formik.handleSubmit}>
+                                <form onSubmit = {formik.handleSubmit}>
                                     <h3 className="text-light text-center">
                                         Sign Up For Your Account!
                                     </h3>

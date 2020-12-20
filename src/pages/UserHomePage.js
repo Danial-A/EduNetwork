@@ -20,7 +20,7 @@ function UserHomePage() {
     }, []);
     
     return (
-        <div>
+        <div style ={{backgroundColor: '#1c2237'}}>
             <NavigationBar/>
             <Post posts = {posts} loading= {loading} />
             <Footer/>

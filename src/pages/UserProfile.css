@@ -1,7 +1,6 @@
-.cover-container{
+/* .cover-container{
     position: relative;
-
-}
+} */
 
 .cover-image{
     width: 100%;
@@ -55,8 +54,6 @@
 .user-info{
     height:50vh;
     margin-bottom: 10vh;
-    position: sticky;
-    top: 10vh;
 }
 
 .user-heading{

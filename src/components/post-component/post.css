@@ -20,6 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 0 0 12px;
+    padding-bottom: 20px;
 }
 .user-heading{
     font-weight: bold;
@@ -49,3 +50,4 @@
 .like-row a {
     padding-right:10px ;
 }
+

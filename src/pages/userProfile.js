@@ -8,6 +8,8 @@ import Post from '../components/post-component/post'
 import Pagination from '../components/post-component/pagination'
 import ProfileInformation from '../components/Profile-Information/ProfileInformation'
 import UserInformation from '../components/Profile-Information/UserInformation'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import UserPost from '../components/create-post/create-post'
 
 
 function UserProfile() {
@@ -15,7 +17,7 @@ function UserProfile() {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(7);
+    const [postsPerPage] = useState(2);
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
@@ -38,7 +40,7 @@ function UserProfile() {
     }
 
     return (
-        <div>
+        <div style = {{backgroundColor: '#1c2237', height:"auto"}}>
             <NavigationBar/>
             <div className="cover-container">
                 <div className="cover-image">
@@ -55,7 +57,8 @@ function UserProfile() {
                     </Col>
                         
                     <Col lg = {6} className = "demo user-post-section">
-                        <div className="post-heading">
+                        <UserPost/>
+                        <div className="post-heading"s style = {{textAlign:'center'}}>
                             <h2>User Posts</h2>
                         </div>
                         <Post posts = {currentPosts} loading= {loading} />

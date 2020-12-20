@@ -11,10 +11,6 @@ const postSchema = new Schema({
     postDescription:{
         type:String,
         required: true,
-    },
-    date:{
-        type:Date,
-        required: true
     }
 },
 {
