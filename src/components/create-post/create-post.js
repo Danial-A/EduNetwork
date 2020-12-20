@@ -9,12 +9,15 @@ function UserPost() {
 
     const initialValues = {
         postTitle: '',
-        postDescription: '',
-        date: '2020-05-29T02:22:49.052+00:00'
+        postDescription: ''
     }
     const onSubmit = values =>{
-        axios.post('http://localhost:5000/posts/add')
-        .then(res =>{console.log(res.data)})
+        axios.post('http://localhost:5000/posts/add', values)
+        .then(res =>{
+            window.alert("Post Added!");
+            window.location.reload(false)
+            console.log(res.data)
+        })
         .catch(err =>{ console.log("Error: "+err)})
         console.log(values)
     }

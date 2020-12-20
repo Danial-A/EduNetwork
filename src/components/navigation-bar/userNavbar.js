@@ -16,7 +16,7 @@ function NavigationBar() {
             <Nav className="ml-auto navbar-links">
               <Nav.Link href="/Home">Home</Nav.Link>
               <Nav.Link href="/profile">Profile</Nav.Link>
-              <Nav.Link href="#contact">Contact Us</Nav.Link>
+              <Nav.Link href="#">Learn</Nav.Link>
               <Nav.Link href="/sign-in" className = "navbar-signup">Log Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>

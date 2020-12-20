@@ -1,11 +1,22 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
-import { faThumbsUp, faComment, faShare, faSave } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faComment, faShare, faSave, faTrash,faEdit,faArchive } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import Axios from 'axios'
 function Post({posts, loading}) {
+
+    const DeletePost = (postid)=>{
+        Axios.delete(`http://localhost:5000/posts/${postid}`)
+        .then(res=>{
+            window.alert("Post Deleted");
+            window.location.reload(false);
+            console.log(res.data)
+        })
+        .catch(err=>{console.log(err)})
+        }
 
     if(loading){
         return <h2>Loading...</h2>
@@ -24,11 +35,18 @@ function Post({posts, loading}) {
                             <pre>Created: {moment(post.createdAt).fromNow()}</pre>
                         </div>
                       </div>
-                      <div className="row">
-                        <div className="col">
+                      <div className="row" style = {{justifyContent:"space-between"}}>
+                        <div className="col-md-8">
                             <div className="post-heading">
                                 <h4>{post.postTitle}</h4>
                             </div>
+                        </div>
+                        <div className="co-md-4">
+                        <div className="delete-icons-row">
+                            <Link ><FontAwesomeIcon icon = {faTrash} onClick = {()=>DeletePost(post._id)}/></Link>
+                            <Link><FontAwesomeIcon icon = {faEdit}/></Link>
+                            <Link><FontAwesomeIcon icon = {faArchive}/></Link>
+                    </div>
                         </div>
                       </div>
                       <div className="row">

@@ -45,9 +45,19 @@
 
 .like-icons-row a:hover{
     color: #1c2237;
+    transition: 0.5s ease;
 }
 
 .like-row a {
     padding-right:10px ;
 }
 
+.delete-icons-row a{
+    color: #1c2237;
+    padding-right: 10px;
+    font-size: 20px;
+}
+.delete-icons-row a:hover{
+    color: crimson;
+    transition: 0.5s ease;
+}
