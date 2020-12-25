@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import NavigationBar from '../components/navigation-bar/userNavbar'
 import './UserProfile.css'
@@ -15,11 +15,14 @@ import UserPost from '../components/create-post/create-post'
 function UserProfile() {
     
     const [posts, setPosts] = useState([])
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(2);
 
+
+
     useEffect(()=>{
+  
         const fetchPosts = async ()=>{
             setLoading(true);
             const response = await axios.get('http://localhost:5000/posts');
@@ -27,6 +30,7 @@ function UserProfile() {
             setLoading(false)
         }
         fetchPosts()
+
     }, []);
 
     //Current Posts
@@ -57,7 +61,7 @@ function UserProfile() {
                     </Col>
                         
                     <Col lg = {6} className = "demo user-post-section">
-                        <UserPost/>
+                        <UserPost totalposts = {posts}/>
                         <div className="post-heading"s style = {{textAlign:'center'}}>
                             <h2>User Posts</h2>
                         </div>

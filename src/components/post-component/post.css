@@ -48,8 +48,26 @@
     transition: 0.5s ease;
 }
 
-.like-row a {
-    padding-right:10px ;
+.like-row {
+    text-align: center;
+}
+.like-row a svg{
+    margin-left: 5px;
+}
+
+.like-row a button{
+    margin-bottom: 10px;
+    border: none;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 6px;
+}
+
+.like-row a button:hover{
+    color: white;
+    background-color: #1c2237;
+    transition: 0.5s ease;
 }
 
 .delete-icons-row a{

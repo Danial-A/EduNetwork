@@ -1,6 +1,5 @@
 const router = require('express').Router();
 let Post = require('../models/post.models');
-const { route } = require('./users');
 
 router.route('/').get((req,res)=>{
     Post.find()
@@ -10,35 +9,37 @@ router.route('/').get((req,res)=>{
 
 router.route('/add').post((req,res)=>{
     console.log(req.body)
-    const postTitle = req.body.postTitle;
-    const postDescription = req.body.postDescription;
-
+    const title = req.body.title;
+    const body = req.body.body;
+    const username = req.body.username
     const newPost = new Post({
-            postTitle,
-            postDescription
+            title,
+            body,
+            username
         });
         newPost.save()
         .then(()=> res.json('Post Added!'))
         .catch(err=> res.status(400).json('Error: '+err))
     });
 
-    router.route('/:id').get((req,res)=>{
+router.route('/:id').get((req,res)=>{
         Post.findById(req.params.id)
         .then(post => res.json(post))
         .catch(err => res.status(400).json('Error: '+err))
     })
 
-    router.route('/:id').delete((req,res) => {
+router.route('/:id').delete((req,res) => {
         Post.findByIdAndDelete(req.params.id)
         .then(()=>{res.json("Post Deleted")})
         .catch(err=> res.status(400).json('Error: '+err))
     });
 
-    router.route('/update/:id').post((req,res)=>{
+    
+router.route('/update/:id').post((req,res)=>{
         Post.findById(req.params.id)
         .then(post=>{
-            post.postTitle = req.body.postTitle;
-            post.postDescription = req.body.postDescription;
+            post.title = req.body.title;
+            post.body = req.body.body;
             post.save()
             .then(()=> res.json('Post Updated'))
             .catch((err)=> res.status(400).json('Error: '+err))

@@ -167,7 +167,7 @@ function SignUp(props) {
                             </div>
                         </div>
                         <div className="col-sm-4 signup">
-                        <img src="/images/signin.svg" alt="sign in image"/>
+                        <img src="/images/signup.svg" alt="sign in image"/>
                         </div>
                     </div>
                 </div>

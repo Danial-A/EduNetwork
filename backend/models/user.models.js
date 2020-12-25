@@ -60,13 +60,13 @@ const userSchema = new Schema({
 //     }
 // })
 
-userSchema.methods.validPassword =async function(password){
-    try{
-        return await bcrypt.compare(password, this.password)
-    }catch(error){
-        throw error
-    }
-}
+// userSchema.methods.validPassword =async function(password){
+//     try{
+//         return await bcrypt.compare(password, this.password)
+//     }catch(error){
+//         throw error
+//     }
+// }
 
 const User = mongoose.model('User', userSchema);
 

@@ -3,15 +3,44 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    postTitle:{
+    title:{
         type:String,
         required:true,
-        maxlength:40
+        maxlength:255
     },
-    postDescription:{
+    body:{
         type:String,
         required: true,
+    },
+    username:{
+        type:String,
+        required:true
+    },
+    likes:[
+        {username:{
+            type:String,
+            required:true,
+            trim:true
+        }
     }
+    ],
+    comments: [
+        {
+            username:{
+                type:String,
+                required: true,
+                trim: true
+            },
+            comment: {
+                type: String,
+                required: true
+            }
+        },
+        {
+            timestamps: true
+        }
+    ]
+
 },
 {
     timestamps:true

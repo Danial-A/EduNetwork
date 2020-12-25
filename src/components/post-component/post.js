@@ -1,18 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './post.css'
-import { faThumbsUp, faComment, faShare, faSave, faTrash,faEdit,faArchive } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faComment, faShare, faSave, faTrash,faEdit,faArchive,faExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import Axios from 'axios'
+import PostComment from '../comments/comment'
 function Post({posts, loading}) {
+
+    const [liked, setLiked] = useState(false)
+    const checkLike = ()=>{
+        
+        if(liked){
+
+        }
+    }
+
 
     const DeletePost = (postid)=>{
         Axios.delete(`http://localhost:5000/posts/${postid}`)
         .then(res=>{
             window.alert("Post Deleted");
-            window.location.reload(false);
             console.log(res.data)
         })
         .catch(err=>{console.log(err)})
@@ -29,7 +38,7 @@ function Post({posts, loading}) {
                     <div key = {post._id} className="post-container container">
                       <div className="row user-info-row">
                         <div className="col-md-6">
-                           <span className = "user-heading">User:</span> Danial Ahmad
+                           <span className = "user-heading">User:</span> {post.username}
                         </div>
                         <div className="col-md-6">
                             <pre>Created: {moment(post.createdAt).fromNow()}</pre>
@@ -38,7 +47,7 @@ function Post({posts, loading}) {
                       <div className="row" style = {{justifyContent:"space-between"}}>
                         <div className="col-md-8">
                             <div className="post-heading">
-                                <h4>{post.postTitle}</h4>
+                                <h4>{post.title}</h4>
                             </div>
                         </div>
                         <div className="co-md-4">
@@ -52,7 +61,7 @@ function Post({posts, loading}) {
                       <div className="row">
                         <div className="col">
                             <div className="post-body">
-                                <p>{post.postDescription}</p>
+                                <p>{post.body}</p>
                             </div>
                         </div>
                       </div>
@@ -65,13 +74,12 @@ function Post({posts, loading}) {
                             
                         </div>
                         <div className="col-md-6 like-row">
-                            <Link>Like</Link>
-                            <Link>Comment</Link>
-                            <Link>Share</Link>
-                            <Link>Report!</Link>
+                            <Link> <button> Report<FontAwesomeIcon icon = {faExclamation}/></button></Link>
                         </div>
                       </div>
+                      <PostComment/>
                     </div>
+                    
                 ))
             }
         </div>
