@@ -8,7 +8,6 @@ router.route('/').get((req,res)=>{
 });
 
 router.route('/add').post((req,res)=>{
-    console.log(req.body)
     const title = req.body.title;
     const body = req.body.body;
     const username = req.body.username
@@ -20,7 +19,7 @@ router.route('/add').post((req,res)=>{
         newPost.save()
         .then(()=> res.json('Post Added!'))
         .catch(err=> res.status(400).json('Error: '+err))
-    });
+});
 
 router.route('/:id').get((req,res)=>{
         Post.findById(req.params.id)
@@ -33,8 +32,7 @@ router.route('/:id').delete((req,res) => {
         .then(()=>{res.json("Post Deleted")})
         .catch(err=> res.status(400).json('Error: '+err))
     });
-
-    
+  
 router.route('/update/:id').post((req,res)=>{
         Post.findById(req.params.id)
         .then(post=>{
@@ -46,6 +44,8 @@ router.route('/update/:id').post((req,res)=>{
         })
         .catch(err => res.status(400).json('Error: '+err))
     })
+
+
 
 
 module.exports = router;

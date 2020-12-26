@@ -38,9 +38,16 @@
     border-bottom: 2px solid crimson;
 }
 .like-icons-row a{
-    color: crimson;
+    
     padding-left: 10px;
     font-size: 20px;
+}
+
+.liked{
+    color: #000;
+}
+.disliked{
+    color: crimson;
 }
 
 .like-icons-row a:hover{
@@ -79,3 +86,10 @@
     color: crimson;
     transition: 0.5s ease;
 }
+
+.created-at{
+    text-align: right;
+    padding-right: 20px;
+    font-size: 18px;
+}
+

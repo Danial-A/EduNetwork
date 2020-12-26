@@ -6,7 +6,7 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './comment.css'
 import DisplayComments from './comments-display'
-function PostComment() {
+function PostComment({postid}) {
     const initialValues = {
         username: 'Danial',
         comment: ''
@@ -15,10 +15,16 @@ function PostComment() {
     const validationSchema = Yup.object({
         comment: Yup.string().required('This field is required..')
     })
+
+    
     const onSubmit = (values, onSubmitProps) =>{
-         let totalComments = axios.get('http://localhost:5000/posts/')
+        values.username = 'Danial'
+         axios.post(`http://localhost:5000/comments/add/${postid}`,values)
          .then(res => {
-             
+             console.log(res.data)
+             window.alert('Comment Added!');
+             window.location.reload(false);
+
          })
          .catch(err => console.log(err))
         onSubmitProps.resetForm()
@@ -27,12 +33,14 @@ function PostComment() {
         initialValues,
         onSubmit,
         validationSchema
-    })
+    });
+
+
 
     return (
         <div>
         <div className="comments-section">
-            <DisplayComments />
+            <DisplayComments postid = {postid}/>
         </div>
             <div className ="container" style ={{borderTop:"1px solid black", padding: "15px 0"}}>
             <form onSubmit = {formik.handleSubmit}>

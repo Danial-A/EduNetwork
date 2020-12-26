@@ -115,3 +115,7 @@
     font-weight: bold;
     transition: 0.4s ease;
 }
+
+.user-post-section{
+    height: auto;
+}
